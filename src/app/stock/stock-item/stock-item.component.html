@@ -1,0 +1,59 @@
+<article
+  class="border-2 border-gray-500 p-4 rounded-md hover:bg-gray-200"
+  (click)="toggleFav()"
+>
+  <div class="flex flex-nowrap items-start">
+    <div class="flex-1 grid gap-10">
+      <h3 class="text-3xl text-slate-800 font-bold">{{ item.name }}</h3>
+      <div class="flex flex-nowrap gap-10">
+        <button *ngIf="!item.isFav">
+          <svg
+            data-testid="geist-icon"
+            fill="none"
+            height="24"
+            shape-rendering="geometricPrecision"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            style="color: var(--geist-foreground)"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              fill="var(--geist-fill)"
+            />
+          </svg>
+        </button>
+        <button *ngIf="item.isFav">
+          <svg
+            data-testid="geist-icon"
+            height="24"
+            shape-rendering="geometricPrecision"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            style="
+              color: var(--geist-foreground);
+              --geist-fill: currentColor;
+              --geist-stroke: var(--geist-background);
+            "
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+              fill="var(--geist-fill)"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="flex-0 px-2 grid gap-1">
+      <span>{{ item.price }}</span>
+      <span>{{ item.previousPrice }}</span>
+    </div>
+  </div>
+</article>

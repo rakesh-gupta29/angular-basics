@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global CSS file for entire app */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Mulish", san-serif;
+}
