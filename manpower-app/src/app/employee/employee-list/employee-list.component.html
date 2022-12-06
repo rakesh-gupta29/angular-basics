@@ -1,0 +1,60 @@
+<table
+  class="shadow-lg bg-white table-auto max-w-screen-xl px-3 mx-auto w-full font-mulish mt-4 mb-32"
+>
+  <tr class="text-xl">
+    <th class="bg-blue-100 border text-left px-8 py-4">Employee</th>
+    <th class="bg-blue-100 border text-left px-8 py-4">Contact</th>
+    <th class="bg-blue-100 border text-left px-8 py-4">Address</th>
+    <th class="bg-blue-100 border text-left px-8 py-4">Company</th>
+  </tr>
+  <tr *ngFor="let entry of tableData; let e = even; let o = odd; let i = index">
+    <td class="border px-8 py-4">
+      <tr class="font-quicksand text-xl font-bold leading-loose">
+        {{
+          entry.name | uppercase
+        }}
+      </tr>
+      <tr>
+        {{
+          entry.username | lowercase
+        }}
+      </tr>
+    </td>
+    <td class="border px-8 py-4">
+      <tr class="leading-loose">
+        {{
+          entry.phone
+        }}
+      </tr>
+      <tr>
+        {{
+          entry.email
+        }}
+      </tr>
+    </td>
+    <td class="border px-8 py-4">
+      <tr class="leading-loose">
+        {{
+          entry.address.suite + entry.address.street
+        }}
+      </tr>
+      <tr>
+        {{
+          entry.address.city
+        }}
+      </tr>
+    </td>
+    <td class="border px-8 py-4">
+      <tr class="leading-loose">
+        {{
+          entry.company.name
+        }}
+      </tr>
+      <tr>
+        {{
+          entry.company.catchPhrase
+        }}
+      </tr>
+    </td>
+  </tr>
+</table>
