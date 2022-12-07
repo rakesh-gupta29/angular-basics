@@ -1,9 +1,9 @@
 <article class="border-2 border-gray-500 p-4 rounded-md hover:bg-gray-200">
   <div class="flex flex-nowrap items-start">
     <div class="flex-1 grid gap-10">
-      <h3 class="text-3xl text-slate-800 font-bold">{{ item.name }}</h3>
+      <h3 class="text-3xl text-slate-800 font-bold name">{{ item.name }}</h3>
       <div class="flex flex-nowrap gap-10">
-        <button *ngIf="!item.isFav" (click)="toggleFav()">
+        <button *ngIf="!item.isFav" (click)="toggleFav()" class="toggle-btn">
           <svg
             data-testid="geist-icon"
             fill="none"
@@ -23,7 +23,11 @@
             />
           </svg>
         </button>
-        <button *ngIf="item.isFav" (click)="toggleFav()">
+        <button
+          *ngIf="item.isFav"
+          (click)="toggleFav()"
+          class="toggle-btn filled-btn"
+        >
           <svg
             data-testid="geist-icon"
             height="24"
@@ -68,7 +72,7 @@
       </div>
     </div>
     <div class="flex-0 px-2 grid gap-1">
-      <span>{{ item.price }}</span>
+      <span class="price">{{ item.price }}</span>
       <span>{{ item.previousPrice }}</span>
     </div>
   </div>

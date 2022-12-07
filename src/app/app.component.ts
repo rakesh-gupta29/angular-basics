@@ -27,6 +27,7 @@ export class AppComponent
     AfterViewChecked,
     AfterViewInit
 {
+  public title = 'stock-market';
   public stocks: Array<Stock> = [];
   public stock: Stock;
   constructor() {}
@@ -40,7 +41,7 @@ export class AppComponent
       new Stock('item five', 500, 'five', 50, '5'),
     ];
 
-    console.log(' App component - On init method called ');
+    console.log('App component - On init method called');
   }
   changeFavStatus(target: string) {
     this.stocks.forEach((elem) => {
