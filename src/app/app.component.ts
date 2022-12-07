@@ -1,11 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  SimpleChanges,
+  OnInit,
+  OnChanges,
+  OnDestroy,
+  DoCheck,
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+} from '@angular/core';
 import { Stock } from './model/stock';
 @Component({
   selector: 'app-root', // root  component for the app
   templateUrl: './app.component.html', // html template
   styleUrls: ['./app.component.css'], // scoped css file
 })
-export class AppComponent implements OnInit {
+export class AppComponent
+  implements
+    OnInit,
+    OnChanges,
+    OnDestroy,
+    DoCheck,
+    AfterContentChecked,
+    AfterContentInit,
+    AfterViewChecked,
+    AfterViewInit
+{
   public stocks: Array<Stock> = [];
   public stock: Stock;
   constructor() {}
@@ -18,6 +39,8 @@ export class AppComponent implements OnInit {
       new Stock('item four', 400, 'four', 40, '4'),
       new Stock('item five', 500, 'five', 50, '5'),
     ];
+
+    console.log(' App component - On init method called ');
   }
   changeFavStatus(target: string) {
     this.stocks.forEach((elem) => {
@@ -25,5 +48,30 @@ export class AppComponent implements OnInit {
         elem.isFav = !elem.isFav;
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    console.log('App Component - After View Init');
+  }
+  ngAfterViewChecked(): void {
+    console.log('App Component - After View Checked');
+  }
+  ngAfterContentInit(): void {
+    console.log('App Component - After Content Init');
+  }
+  ngAfterContentChecked(): void {
+    console.log('App Component - After Content Checked');
+  }
+  ngDoCheck(): void {
+    console.log('App Component - Do Check');
+  }
+  ngOnDestroy(): void {
+    console.log('App Component - On Destroy');
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('App Component - On Changes - ', changes);
+  }
+  testMethod() {
+    console.log('test method for app componet was triggered');
   }
 }

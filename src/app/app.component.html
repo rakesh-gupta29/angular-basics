@@ -2,11 +2,13 @@
   <section
     class="grid grid-cols-3 gap-10 max-w-screen-2xl mx-auto px-3 md:w-11/12"
   >
-    <div *ngFor="let elem of stocks">
+    <div *ngFor="let elem of stocks; let i = index; let e = even">
       <app-stock-item
         [item]="elem"
+        [index]="i"
         (changeFavStatus)="changeFavStatus($event)"
-      ></app-stock-item>
+      >
+      </app-stock-item>
     </div>
   </section>
 </main>
