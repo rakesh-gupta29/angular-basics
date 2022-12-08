@@ -6,3 +6,10 @@
 body {
   font-family: "Mulish", san-serif;
 }
+
+.d {
+  @apply border-2 border-solid border-red-900;
+}
+.ng-invalid {
+  @apply bg-red-100;
+}

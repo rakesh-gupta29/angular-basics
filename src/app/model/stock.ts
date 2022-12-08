@@ -4,7 +4,7 @@ export class Stock {
     public price: number,
     public code: string,
     public previousPrice: number,
-    public id: string,
+    public id?: string,
     public isFav: boolean = false
   ) {}
   hasIncreased(): boolean {

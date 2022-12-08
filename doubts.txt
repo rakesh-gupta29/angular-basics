@@ -1,0 +1,2 @@
+1. Why entire component re-renders on input in a field
+2. How to work with Reactive Forms in Angular ( Chapter 7 of Book)

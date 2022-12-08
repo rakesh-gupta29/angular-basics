@@ -1,0 +1,68 @@
+<section class="border-1 border-gray-300 max-w-screen-lg mx-auto mb-20 py-16">
+  <div class="grid place-content-center pb-10">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl text-blue-800 font-bold">
+      Create A Stock
+    </h2>
+  </div>
+  <form
+    (ngSubmit)="createStock()"
+    class="grid gap-2 md:gap-4 lg:gap-10 grid-cols-1 md:grid-cols-2 md:w-11/12 px-3 my-4 rounded-lg max-w-screen-md mx-auto"
+  >
+    <input
+      type="text"
+      name="stockName"
+      [(ngModel)]="stock.name"
+      class="border-2 border-gray-500 border-solid py-2 px-3 focus:border-blue-500 outline-none rounded-md text-lg font-bold"
+    />
+    <input
+      type="number"
+      name="stockPrice"
+      [(ngModel)]="stock.price"
+      class="border-2 border-gray-500 border-solid py-2 px-3 focus:border-blue-500 outline-none rounded-md text-lg font-bold"
+    />
+    <input
+      type="text"
+      name="stockCode"
+      [(ngModel)]="stock.code"
+      class="border-2 border-gray-500 border-solid py-2 px-3 focus:border-blue-500 outline-none rounded-md text-lg font-bold"
+    />
+    <input
+      type="number"
+      name="stockpreviousPrice"
+      [(ngModel)]="stock.previousPrice"
+      class="border-2 border-gray-500 border-solid py-2 px-3 focus:border-blue-500 outline-none rounded-md text-lg font-bold"
+    />
+    <div class="mt-10 md:w-11/12 px-3 my-4 rounded-lg max-w-screen-md mx-auto">
+      <div
+        class="text-slate-800 flex flex-nowrap gap-2 items-center justify-start"
+      >
+        <input
+          type="checkbox"
+          id="confirmed"
+          name="confirmed"
+          [(ngModel)]="confirmed"
+        />
+        <label for="confirmed">Confirm that provided info is correct.</label>
+      </div>
+      <button
+        class="bg-blue-700 text-white hover:bg-blue-900 px-5 text-xl rounded-md py-2 mt-6 disabled:cursor-not-allowed disabled:opacity-50"
+        type="submit"
+        [disabled]="!confirmed"
+      >
+        Create
+      </button>
+    </div>
+  </form>
+</section>
+
+<!--  how the state of form is made available to us is through css classes: The ngModel
+directive changes and adds CSS classes to the element it is on  
+
+             if true       if false
+Visited   ng-touched     ng-untouched
+Changed   ng-dirty     ng-pristine
+Valid   ng-valid     ng-invalid
+
+
+
+-->

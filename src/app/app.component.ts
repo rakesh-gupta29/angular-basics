@@ -72,7 +72,4 @@ export class AppComponent
   ngOnChanges(changes: SimpleChanges): void {
     console.log('App Component - On Changes - ', changes);
   }
-  testMethod() {
-    console.log('test method for app componet was triggered');
-  }
 }
