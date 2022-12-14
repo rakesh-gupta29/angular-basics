@@ -1,20 +1,10 @@
-<main class="py-20">
-  <app-create-stock></app-create-stock>
-  <div class="grid place-content-center pb-10">
-    <h2 class="text-3xl md:text-4xl lg:text-5xl text-blue-800 font-bold">
-      List Of Stocks:
-    </h2>
+<main class="min-h-screen flex flex-col flex-nowrap">
+  <app-header (changeView)="changeView($event)"></app-header>
+  <app-stock-list *ngIf="options == 'view'; else create"></app-stock-list>
+  <ng-template #create>
+    <app-create-stock></app-create-stock>
+  </ng-template>
+  <div class="mt-auto">
+    <app-footer></app-footer>
   </div>
-  <section
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-lg mx-auto px-3 md:w-11/12"
-  >
-    <div *ngFor="let elem of stocks; let i = index; let e = even">
-      <app-stock-item
-        [item]="elem"
-        [index]="i"
-        (changeFavStatus)="changeFavStatus($event)"
-      >
-      </app-stock-item>
-    </div>
-  </section>
 </main>

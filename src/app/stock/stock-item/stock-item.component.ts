@@ -1,70 +1,15 @@
-import {
-  Component,
-  SimpleChanges,
-  OnInit,
-  OnChanges,
-  OnDestroy,
-  DoCheck,
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
-  Input,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Stock } from '../../model/stock';
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
   styleUrls: ['./stock-item.component.css'],
 })
-export class StockItemComponent
-  implements
-    OnInit,
-    OnChanges,
-    OnDestroy,
-    DoCheck,
-    AfterContentChecked,
-    AfterContentInit,
-    AfterViewChecked,
-    AfterViewInit
-{
+export class StockItemComponent {
   @Input() public item: Stock;
   @Input() public index: number;
-  @Output() changeFavStatus: EventEmitter<string>;
 
-  constructor() {
-    this.changeFavStatus = new EventEmitter<string>();
-  }
-  toggleFav() {
-    this.changeFavStatus.emit(this.item.id);
-  }
-
-  ngOnInit(): void {
-    console.log('Stock  Item: Oninit method called ');
-  }
-  ngAfterViewInit(): void {
-    console.log('Stock Item - After View Init');
-  }
-  ngAfterViewChecked(): void {
-    console.log('Stock Item - After View Checked');
-  }
-  ngAfterContentInit(): void {
-    console.log('Stock Item - After Content Init');
-  }
-  ngAfterContentChecked(): void {
-    console.log('Stock Item - After Content Checked');
-  }
-  ngDoCheck(): void {
-    console.log('Stock Item - Do Check');
-  }
-  ngOnDestroy(): void {
-    console.log('Stock Item - On Destroy');
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Stock Item - On Changes - ', changes);
-  }
+  constructor() {}
 
   showInfo() {
     alert('this button will be used for routing. Coming Soon!');

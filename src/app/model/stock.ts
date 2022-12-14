@@ -1,13 +1,9 @@
 export class Stock {
   constructor(
+    public symbol: string,
+    public mic_code: string,
     public name: string,
-    public price: number,
-    public code: string,
-    public previousPrice: number,
-    public id?: string,
-    public isFav: boolean = false
+    public country: string,
+    public type: string
   ) {}
-  hasIncreased(): boolean {
-    return this.price >= this.previousPrice;
-  }
 }
