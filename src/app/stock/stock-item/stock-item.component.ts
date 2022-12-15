@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Stock } from '../../model/stock';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
@@ -9,8 +10,10 @@ export class StockItemComponent {
   @Input() public item: Stock;
   @Input() public index: number;
 
-  constructor() {}
-
+  constructor(private router: Router) {}
+  navigateToDesc() {
+    this.router.navigate(['']);
+  }
   showInfo() {
     alert('this button will be used for routing. Coming Soon!');
   }

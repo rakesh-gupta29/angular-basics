@@ -10,3 +10,5 @@ application. This is where Angular services come in
 Components generally will defer and ask a service for data (or a section of the data). It is up to the service to decide how and where to fetch the data from, whether it is from a web service via HTTP calls, a local storage or cache, or even return mock data.
 
 Dependency Injection: dependency injection is the idea that any class or function should ask for its dependencies, rather than instantiating it themselves.Dependency injection has huge benefits when we practice it in our applications, as it allows us to create modular, reusable pieces while allowing us to test components and modules easily.
+
+routerlink params : "path" :append to current path ,"/path" : append to root path, "../../path": working as per relative navigation

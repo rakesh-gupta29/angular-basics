@@ -1,19 +1,28 @@
 <header class="border-b-1 border-gray-300 py-1">
   <nav class="py-4 max-w-screen-xl md:w-11/12 mx-auto px-3 flex flex-nowrap">
-    <span class="text-xl md:text-2xl font-bold">Stock Manager</span>
+    <a class="text-xl md:text-2xl font-bold" routerLink="/">Stock Manager</a>
     <div class="flex flex-nowrap gap-4 items-center justify-end flex-1">
-      <button
-        (click)="handleViewChange('view')"
+      <a
+        routerLink="view"
+        routerLinkActive="text-blue-900 underline"
+        [routerLinkActiveOptions]="{ exact: true }"
         class="text-lg hover:text-blue-700 hover:underline underline-offset-4"
       >
         View
-      </button>
-      <button
-        (click)="handleViewChange('create')"
+      </a>
+      <a
+        [routerLink]="['create']"
+        routerLinkActive="text-blue-900  underline"
         class="text-lg hover:text-blue-700 hover:underline underline-offset-4"
       >
         Create
-      </button>
+      </a>
     </div>
   </nav>
 </header>
+
+<!--  routerlink : target link, 
+routerLinkActive: classname to  be appended for active state,
+routerLinkActiveOptions : { exact : boolean } :decide when to do this 
+navigate progammatically : using functions 
+  -->

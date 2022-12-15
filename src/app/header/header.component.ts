@@ -11,5 +11,8 @@ export class HeaderComponent implements OnInit {
   handleViewChange(target: string) {
     this.changeView.emit(target);
   }
+  resolvepath(target: string) {
+    return target;
+  }
   ngOnInit(): void {}
 }
