@@ -1,0 +1,34 @@
+<section
+  class="max-w-screen-xl mt-12 mx-auto md:w-11/12 px-3 grid lg:grid-cols-12 gap-10"
+>
+  <div class="col-start-1 col-end-13 lg:col-end-6 md:col-end-3 overflow-hidden">
+    <div class="h-[32rem]">
+      <img
+        [src]="contact.avatarUrl"
+        alt="cover"
+        class="w-full h-full object-cover object-top"
+      />
+    </div>
+  </div>
+  <div class="col-start-1 md:col-start-3 lg:col-start-6 col-end-13">
+    <h2 class="text-5xl text-blue-900 font-bold">{{ contact.name }}</h2>
+    <ul class="grid gap-2 mt-6 xl:mt-8">
+      <li>
+        <a href="{{ 'mailto:' + contact.email }}">
+          Email : {{ contact.email }}</a
+        >
+      </li>
+      <li>
+        <a href="{{ 'tel:' + contact.phone }}"> Phone : {{ contact.phone }}</a>
+      </li>
+      <li>
+        <span ngIf="contact.isFav == true; else notFav">
+          This contact is in fav list
+        </span>
+        <ng-template #notFav>
+          <span>This contact is NOT in favlist</span>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</section>

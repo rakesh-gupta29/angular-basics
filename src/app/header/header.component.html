@@ -1,0 +1,26 @@
+<header class="border-b-1 border-gray-300 py-2">
+  <nav
+    class="py-2 max-w-screen-2xl mx-auto px-3 md:w-11/12 flex flex-nowrap flex-row items-center justify-between"
+  >
+    <a routerLink="/" class="text-2xl font-bold text-slate-800 uppercase"
+      >conMan</a
+    >
+    <div class="ml-auto flex flex-nowrap items-center justify-end gap-8">
+      <a
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="text-lg text-slate-800 hover:underline underline-offset-4"
+        routerLinkActive="font-bold underline"
+      >
+        List
+      </a>
+      <a
+        routerLink="/login"
+        class="text-lg text-slate-800 hover:underline underline-offset-4"
+        routerLinkActive="font-bold underline"
+      >
+        Login
+      </a>
+    </div>
+  </nav>
+</header>
