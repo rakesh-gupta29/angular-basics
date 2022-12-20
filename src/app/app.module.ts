@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,8 +18,8 @@ import { ContactDescriptionComponent } from './screens/contact-description/conta
 import { LoginComponent } from './screens/login/login.component';
 import { SignupComponent } from './screens/signup/signup.component';
 import { ErrorComponent } from './screens/error/error.component';
-{
-}
+import { environment } from 'src/environments/environment';
+
 const appRoutes: Routes = [
   { path: '', component: ContactListComponent },
   { path: 'contact/:id', component: ContactDescriptionComponent },
@@ -42,6 +46,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

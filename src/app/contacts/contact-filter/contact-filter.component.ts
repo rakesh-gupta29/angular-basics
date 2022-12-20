@@ -9,22 +9,40 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class ContactFilterComponent implements OnInit {
   public query: string = '';
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-  ngOnInit(): void {}
+  private timer!: ReturnType<typeof setTimeout>;
+  constructor(private router: Router, private activeRoute: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.activeRoute.queryParams.subscribe((params: Params) => {
+      this.query = params['q'];
+    });
+  }
 
   handleQueryUpdate(): void {
-    // implement debounce here
-    console.log(this.query);
+    let cb = this.debounce(() => this.updateUrlQuery(), 500);
+    cb();
   }
   handleQuerySubmission() {
-    // implement debounce here
-    console.log(this.query);
+    this.updateUrlQuery();
+  }
+  updateUrlQuery() {
+    this.router.navigate([], {
+      relativeTo: this.activeRoute,
+      queryParams: { q: this.query },
+      queryParamsHandling: 'merge',
+    });
+  }
+  debounce<T extends Function>(cb: T, delay: number) {
+    return (...args: any[]) => {
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        cb.apply(this, args);
+      }, delay);
+    };
   }
 }
 /*
  task for this module is : 
-  passing the query update to url on input element valu change
-  implement a debounce function  to update the url
   fetching data from backend 
   handle form submit  for query
+  fetching route parameters  the reactive way 
 */
