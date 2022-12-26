@@ -8,26 +8,25 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ContactCardComponent } from './contacts/contact-card/contact-card.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ContactCardComponent } from './components/contacts/contact-card/contact-card.component';
 import { ContactListComponent } from './screens/contact-list/contact-list.component';
 import { CreateContactComponent } from './screens/create-contact/create-contact.component';
-import { ContactFilterComponent } from './contacts/contact-filter/contact-filter.component';
+import { ContactFilterComponent } from './components/contacts/contact-filter/contact-filter.component';
 import { ContactDescriptionComponent } from './screens/contact-description/contact-description.component';
 import { LoginComponent } from './screens/login/login.component';
 import { SignupComponent } from './screens/signup/signup.component';
 import { ErrorComponent } from './screens/error/error.component';
 import { environment } from 'src/environments/environment';
-
-const appRoutes: Routes = [
-  { path: '', component: ContactListComponent },
-  { path: 'contact/:id', component: ContactDescriptionComponent },
-  { path: 'add', component: CreateContactComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: ErrorComponent },
-];
+import { AppRouteModule } from './utils/app.routing.module';
+import { AuthGuardService } from './services/authGuard/auth-guard.service';
+import { AuthServiceService } from './services/authService/auth-service.service';
+import { DashboardComponent } from './screens/dashboard/dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { DashboardOptionsComponent } from './components/dashboard-options/dashboard-options.component';
+import { EditPasswordComponent } from './components/edit-password/edit-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,11 +38,18 @@ const appRoutes: Routes = [
     ContactFilterComponent,
     LoginComponent,
     SignupComponent,
+    ErrorComponent,
+    DashboardComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    DashboardOptionsComponent,
+    EditPasswordComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule,
+    AppRouteModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -51,7 +57,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireStorageModule,
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthServiceService], //  register all services
   bootstrap: [AppComponent],
 })
 export class AppModule {}

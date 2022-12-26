@@ -8,3 +8,7 @@ routerLinkActiveOptions : passing the active link class based on the options onl
 understanding navigation path options : what are the options for routerLinkPath options
 
 Debounce the call to API
+
+To Do List :
+
+Showing a loading page while the canActivate is pending
