@@ -1,11 +1,14 @@
-## Welcome aboard my journey of learning of Angular web framework.
-
-### Reasons to choose Angular:
-
-- Templating
+- Templates
 - Data Binding
 - Forms
 - Routing
-- Observeables
-- PWA
+- Observables
+- PWA support
 - Native TS Support
+and many more.
+
+
+**This repo contains following preliminary apps:** 
+- [Manpower app ](https://github.com/rakesh-gupta29/angular-workspace/tree/main/manpower-app) -  Framework basics and CRUD Operations
+- [Stock Market ](https://github.com/rakesh-gupta29/angular-workspace/tree/stock-market) - Manage list of users: CRUD  Operations and data flow, API Integration
+- [Contact app ](https://github.com/rakesh-gupta29/angular-workspace/tree/contact-app) - Manage list of Contacts: CRUD  Operations, data flow, Exporting data in CSV format, handling matadata of entries.
