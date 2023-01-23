@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Regular;
+  src: url(./assets/regular.woff2);
+}
+html,
+body {
+  color: #3d3d3d;
+  font-family: Regular, sans-serif;
+}
+
+@layer components {
+  .d {
+    @apply border-solid border-2 border-red-800;
+  }
+  .w-container {
+    @apply max-w-screen-2xl mx-auto  md:w-11/12 px-3;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-5xl lg:text-6xl leading-snug lg:leading-snug;
+  }
+  h2 {
+    @apply text-4xl lg:text-5xl leading-snug lg:leading-snug;
+  }
+  h3 {
+    @apply text-3xl lg:text-4xl leading-snug lg:leading-snug;
+  }
+  small {
+    @apply text-sm;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

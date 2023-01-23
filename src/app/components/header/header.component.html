@@ -1,0 +1,37 @@
+<header class="border-b-1 border-gray-300 py-2 sticky top-0 z-50 bg-white">
+  <nav
+    class="py-2 max-w-screen-2xl mx-auto px-3 md:w-11/12 flex flex-nowrap flex-row items-center justify-between"
+  >
+    <a routerLink="/" class="text-2xl font-bold text-slate-800 uppercase">
+      <img src="assets/logo.svg" alt="Moviee Logo" class="h-10 md:h-auto"
+    /></a>
+    <div
+      class="ml-auto flex flex-nowrap items-center justify-end gap-4 md:gap-6 lg:gap-8"
+    >
+      <a
+        routerLink="/movies"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="font-bold text-primary"
+        class="focus:text-primary focus:outline-none"
+      >
+        Movies
+      </a>
+      <a
+        routerLink="/tv-shows"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="font-bold text-primary"
+        class="focus:text-primary focus:outline-none"
+      >
+        TV Shows
+      </a>
+      <a
+        routerLink="/genres"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="font-bold text-primary"
+        class="focus:text-primary focus:outline-none"
+      >
+        Genres
+      </a>
+    </div>
+  </nav>
+</header>

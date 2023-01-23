@@ -1,0 +1,40 @@
+<section
+  id="faq"
+  aria-labelledby="faq-title"
+  class="relative overflow-hidden pb-20"
+>
+  <div class="w-container">
+    <div class="max-w-screen-lg my-10 md:my-24">
+      <h3 class="md:mb-2 font-semibold">TV Shows</h3>
+      <span
+        >Browse all genres of movies. <br class="md:block hidden" />
+        Below is a comprehensive list of all genres in a TV Show.</span
+      >
+      <div class="flex flex-wrap gap-5 mt-6 md:my-12">
+        <a
+          href="https://www.github.com/rakesh-gupta29"
+          *ngFor="let item of genres"
+          class="basis-20 px-6 md:px-10 leading-loose py-2 md:py-3 border-1 border-slate-400 border-solid rounded-sm hover:bg-slate-900 hover:text-white transition-color duration-300 ease-in-out cursor-pointer"
+        >
+          {{ item.title }}
+        </a>
+      </div>
+    </div>
+    <div class="max-w-screen-lg my-10 md:my-24">
+      <h3 class="md:mb-2 font-semibold">Movies</h3>
+      <span
+        >Browse all genres of movies. <br class="md:block hidden" />
+        Below is a comprehensive list of all genres in a movies.</span
+      >
+      <div class="flex flex-wrap gap-5 mt-6 md:my-12">
+        <a
+          href="https://www.github.com/rakesh-gupta29"
+          *ngFor="let item of genres"
+          class="basis-20 px-6 md:px-10 leading-loose py-2 md:py-3 border-1 border-slate-400 border-solid rounded-sm hover:bg-slate-900 hover:text-white transition-color duration-300 ease-in-out cursor-pointer"
+        >
+          {{ item.title }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
