@@ -1,0 +1,39 @@
+<div class="px-10 pb-3 pt-10">
+  <h2 class="mb-1">Contact List</h2>
+  <span>Details of contact form submissions</span>
+</div>
+
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mx-10 my-10">
+  <table class="w-full text-sm text-left table-fixed">
+    <thead class="font-bold uppercase bg-gray-200">
+      <tr>
+        <th scope="col" class="py-3 px-6 w-20">Serial</th>
+        <th scope="col" class="py-3 px-6">Title</th>
+        <th scope="col" class="py-3 px-6">Author</th>
+        <th scope="col" class="py-3 px-6">Created At</th>
+        <th scope="col" class="py-3 px-6 w-48">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of contacts; let i = index"
+        class="border-b-1 dark:border-gray-200"
+      >
+        <th scope="row" class="py-4 px-6 font-medium whitespace-nowrap">
+          {{ i + 1 }}
+        </th>
+        <td class="py-4 px-6">{{ item.name }}</td>
+        <td class="py-4 px-6">{{ item.email }}</td>
+        <td class="py-4 px-6">{{ item.phone }}</td>
+        <td class="py-4 px-6">
+          <button
+            (click)="handleDelete(item.id)"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-2 px-2"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

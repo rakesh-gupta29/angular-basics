@@ -1,0 +1,183 @@
+<div class="px-10 pb-3 pt-10">
+  <h2 class="mb-1">Admin Profile</h2>
+  <span>Details of admin: username and password</span>
+</div>
+
+<div
+  class="max-w-screen-sm mt-10 ml-10 md:w-11/12 px-3 border-1 border-gray-300 rounded-md md:p-6 p-3 lg:p-10 mx-1"
+>
+  <form
+    [formGroup]="pwdResetForm"
+    (ngSubmit)="handleFormSubmission()"
+    class="flex flex-col gap-3 lg:gap-5"
+  >
+    <div class="w-full">
+      <label for="password"> Old Password</label>
+      <div
+        class="flex flex-nowrap border-1 border-gray rounded-md mt-2 overflow-hidden focus-within:border-gray-800"
+      >
+        <input
+          id="password"
+          size="2"
+          [type]="oldPwdOn ? 'text' : 'password'"
+          placeholder="Enter Password"
+          formControlName="password"
+          class="w-full text-lg rounded-sm outline-none focus:outline-none px-2 py-2 focus:text-blue-700"
+        />
+        <button
+          type="button"
+          (click)="toggleOldPwdView()"
+          class="grid place-content-center hover:bg-gray-200 px-3 min-h-full cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </button>
+      </div>
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          pwdResetForm.get('password')?.touched &&
+          pwdResetForm.get('password')?.errors &&
+          pwdResetForm.get('password')?.hasError('required')
+        "
+      >
+        Password is required
+      </span>
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          pwdResetForm.get('password')?.touched &&
+          pwdResetForm.get('password')?.errors &&
+          pwdResetForm.get('password')?.hasError('pattern')
+        "
+      >
+        Password should contain uppercase and lowercase letters, digits and
+        special chacraters and should be at least 8 characters
+      </span>
+    </div>
+    <div class="w-full">
+      <label for="password">New Password</label>
+      <div
+        class="flex flex-nowrap border-1 border-gray rounded-md mt-2 overflow-hidden focus-within:border-gray-800"
+      >
+        <input
+          id="newPassword"
+          size="2"
+          [type]="newPwdOn ? 'text' : 'password'"
+          placeholder="Enter Password"
+          formControlName="newPassword"
+          class="w-full text-lg rounded-sm outline-none focus:outline-none px-2 py-2 focus:text-blue-700"
+        />
+        <button
+          type="button"
+          (click)="toggleNewPwdView()"
+          class="grid place-content-center hover:bg-gray-200 px-3 min-h-full cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          pwdResetForm.get('newPassword')?.touched &&
+          pwdResetForm.get('newPassword')?.errors &&
+          pwdResetForm.get('newPassword')?.hasError('required')
+        "
+      >
+        Password is required
+      </span>
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          pwdResetForm.get('newPassword')?.touched &&
+          pwdResetForm.get('newPassword')?.errors &&
+          pwdResetForm.get('newPassword')?.hasError('pattern')
+        "
+      >
+        Password should contain uppercase and lowercase letters, digits and
+        special chacraters and should be at least 8 characters
+      </span>
+    </div>
+    <div class="w-full">
+      <label for="password">Confirm New Password</label>
+      <input
+        id="confirmNewPassword"
+        size="2"
+        type="password"
+        placeholder="Confirm New Password"
+        formControlName="confirmNewPassword"
+        class="w-full mt-2 border-1 border-gray-300 focus:border-gray-800 text-lg outline-none focus:outline-none px-2 py-2 focus:text-blue-700 rounded-md"
+      />
+
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          pwdResetForm.get('confirmNewPassword')?.touched &&
+          pwdResetForm.get('confirmNewPassword')?.errors &&
+          pwdResetForm.get('confirmNewPassword')?.hasError('required')
+        "
+      >
+        Password is required
+      </span>
+
+      <span
+        class="text-sm text-red-700"
+        *ngIf="pwdResetForm.get('confirmNewPassword')?.hasError('mismatch')"
+      >
+        Passwords Do Not Match
+      </span>
+    </div>
+
+    <div class="flex flex-nowrap gap-7 mt-5">
+      <button
+        type="button"
+        class="py-2 px-6 rounded-md bg-gray-700 hover:bg-gray-600 text-white font-bold text-lg"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        [disabled]="pwdResetForm.invalid"
+        class="py-2 px-6 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold text-lg disabled:bg-blue-400 disabled:cursor-not-allowed"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

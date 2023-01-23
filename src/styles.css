@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+@layer base {
+  h2 {
+    @apply text-3xl font-bold text-dark;
+  }
+}
+
+.d {
+  border: 1px solid red;
+}

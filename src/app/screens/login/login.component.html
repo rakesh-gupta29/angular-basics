@@ -1,0 +1,118 @@
+<div
+  class="max-w-screen-sm my-20 md:mx-auto md:w-11/12 px-3 border-1 border-gray-300 rounded-md md:p-6 p-3 lg:p-10 mx-1"
+>
+  <form
+    [formGroup]="loginForm"
+    (submit)="handleFormSubmission()"
+    class="flex flex-col gap-3 lg:gap-5"
+  >
+    <div class="w-full">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        size="2"
+        type="email"
+        placeholder="Enter Email"
+        formControlName="email"
+        class="w-full mt-2 border-1 border-gray-300 focus:border-gray-800 text-lg rounded-sm outline-none focus:outline-none px-2 py-2 focus:text-blue-700"
+      />
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          loginForm.get('email')?.touched &&
+          loginForm.get('email')?.errors &&
+          loginForm.get('email')?.hasError('required')
+        "
+      >
+        Email is required
+      </span>
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          loginForm.get('email')?.touched &&
+          loginForm.get('email')?.errors &&
+          loginForm.get('email')?.hasError('email')
+        "
+      >
+        Please provide a valid Email
+      </span>
+    </div>
+    <div class="w-full">
+      <label for="password">Password</label>
+      <div
+        class="flex flex-nowrap border-1 border-gray rounded-md mt-2 overflow-hidden focus-within:border-gray-800"
+      >
+        <input
+          id="password"
+          size="2"
+          [type]="isPasswordOn ? 'text' : 'password'"
+          placeholder="Enter Password"
+          formControlName="password"
+          class="w-full text-lg rounded-sm outline-none focus:outline-none px-2 py-2 focus:text-blue-700"
+        />
+        <button
+          type="button"
+          (click)="togglePwdView()"
+          class="grid place-content-center hover:bg-gray-200 px-3 min-h-full cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+        </button>
+      </div>
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          loginForm.get('password')?.touched &&
+          loginForm.get('password')?.errors &&
+          loginForm.get('password')?.hasError('required')
+        "
+      >
+        Password is required
+      </span>
+      <span
+        class="text-sm text-red-700"
+        *ngIf="
+          loginForm.get('password')?.touched &&
+          loginForm.get('password')?.errors &&
+          loginForm.get('password')?.hasError('pattern')
+        "
+      >
+        Password should contain uppercase and lowercase letters, digits and
+        special chacraters and should be at least 8 characters
+      </span>
+    </div>
+
+    <div class="flex flex-nowrap gap-7 mt-5">
+      <button
+        type="reset"
+        class="py-2 px-6 rounded-md bg-gray-700 hover:bg-gray-600 text-white font-bold text-lg"
+      >
+        Reset
+      </button>
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="py-2 px-6 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold text-lg disabled:bg-blue-400 disabled:cursor-not-allowed"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
