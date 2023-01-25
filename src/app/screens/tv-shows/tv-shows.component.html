@@ -1,1 +1,50 @@
-<p>tv-shows works!</p>
+<div
+  class="w-container pt-24 flex lg:flex-row flex-col justify-between gap-x-10 gap-y-8"
+>
+  <div>
+    <h3 class="md:mb-2 font-semibold">TV Shows</h3>
+    <span class="text-base lg:text-lg"
+      >Browse all genres of movies. <br class="md:block hidden" />
+      Below is a comprehensive list of all genres in a TV Shows.</span
+    >
+  </div>
+  <div class="flex-1 max-w-md">
+    <form
+      [formGroup]="searchForm"
+      (submit)="handleFormSubmission()"
+      class="border-1 border-solid border-gray-300 shadow-md rounded-md overflow-hidden flex flex-nowrap"
+    >
+      <input
+        type="text"
+        formControlName="query"
+        size="2"
+        placeholder="Search 'latest'"
+        class="w-full focus:outline-none outline-none border-none text-lg py-3 px-3"
+      />
+      <button
+        type="submit"
+        class="grid place-content-center px-5 stroke-white bg-primary hover:bg-opacity-90 focus:outline-none outline-none border-solid border-1 focus:bg-gray-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="inherit"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+<section
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 w-container gap-y-10 md:gap-y-16 lg:gap-y-24 gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 pt-10 md:pt-16 lg:pt-24 pb-44"
+>
+  <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+</section>

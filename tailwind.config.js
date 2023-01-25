@@ -18,6 +18,9 @@ module.exports = {
       colors: {
         primary: "rgb(37,99,235)",
       },
+      spacing: {
+        banner: "calc(100vh - 80px ) ",
+      },
       borderWidth: {
         1: "1px",
       },

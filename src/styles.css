@@ -31,6 +31,12 @@ body {
   h3 {
     @apply text-3xl lg:text-4xl leading-snug lg:leading-snug;
   }
+  h4 {
+    @apply text-2xl lg:text-3xl leading-snug lg:leading-snug;
+  }
+  h5 {
+    @apply text-xl lg:text-2xl leading-snug lg:leading-snug;
+  }
   small {
     @apply text-sm;
   }
