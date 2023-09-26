@@ -1,13 +1,5 @@
-- Templates
-- Data Binding
-- Forms
-- Routing
-- Observables
-- PWA support
-- Native TS Support
-  and many more.
-
-**This repo contains following preliminary apps:**
+<h2 align="center">Angular Basics</h2>
+<h5 align="center">Collection of basic projects to learn Angular</h5>
 
 - [Manpower app ](https://github.com/rakesh-gupta29/angular-basics/tree/main/manpower-app) - Framework basics and CRUD Operations
 - [Movie App](https://github.com/rakesh-gupta29/angular-basics/tree/movie-app) - Movie search app, working with API integration. [Live Version](https://angular-movie-search.vercel.app/)
